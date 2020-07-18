@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express();
+const port = process.env.PORT || 9000
 
 
 //Define paths for express cofig
@@ -32,7 +33,7 @@ app.use(express.static(publicDirPath))
 app.get('/about',(req,res)=>{
 	 res.render('about',{
 	 	title : "About me ",
- 		name : "Katherine"
+ 		name : "Katherine	"
 	 })
 });
 
@@ -106,6 +107,6 @@ app.get('*',(req,res)=>{
 	})
 })
 
-app.listen(9000,()=>{
-	console.log("listening..")
+app.listen(port,()=>{
+	console.log("listening.. at "+ port)
 })
